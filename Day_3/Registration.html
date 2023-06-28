@@ -1,0 +1,187 @@
+<html>
+
+<head>
+  <title>Registration Form</title>
+</head>
+
+<body>
+  <table border="1" align="center" cellspacing="0" cellpadding="5">
+    <form>
+      <tr>
+        <td>
+          First Name:
+        </td>
+        <td>
+          <input type="text" id="firstname" name="firstname">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Middle Name:
+        </td>
+        <td>
+          <input type="text" id="middlename" name="middlename">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Last Name:
+        </td>
+        <td>
+          <input type="text" id="lastname" name="lastname">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Email:
+        </td>
+        <td>
+          <input type="email" id="email" name="email">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Mobile No:
+        </td>
+        <td>
+          <input type="number" id="mno" name="mno">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Gender:
+        </td>
+        <td>
+          <input type="radio" name="gender" id="gender" value="Male">Male
+          <input type="radio" name="gender" id="gender" value="Female">Female
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          DOB:
+        </td>
+        <td>
+          <input type="date" id="dob" name="dob">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Profile Upload:
+        </td>
+        <td>
+          <input type="file" id="cv" name="cv">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          How Can We Help You?:
+        </td>
+        <td>
+          <textarea id="question" rows="4" cols="20" id="question" name="question"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Password:
+        </td>
+        <td>
+          <input type="password" id="password" name="password">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Address:
+        </td>
+        <td>
+          <textarea id="address" rows="4" cols="20" id="address" name="address"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Pincode:
+        </td>
+        <td>
+          <input type="pincode" id="pincode" name="pincode">
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center" colspan="2">
+          <input type="checkbox" id="tc">
+          <label>Please Accept Our Terms & Condition</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center" style="background-color: white;">
+          <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+        </td>
+      </tr>
+    </form>
+
+  </table>
+</body>
+
+</html>
+
+<script>
+  let saveFile = () => {
+    // Get the data from each element on the form.
+    const firstName = document.getElementById("firstname");
+    const middleName = document.getElementById("middlename");
+    const lastname = document.getElementById("lastname");
+    const email = document.getElementById("email");
+    const mno = document.getElementById("mno");
+    const gender = document.getElementById("gender");
+    const dob = document.getElementById("dob");
+    const cv = document.getElementById("cv");
+    const question = document.getElementById("question");
+    const password = document.getElementById("password");
+    const address = document.getElementById("address");
+    const pincode = document.getElementById("pincode");
+    const tc = document.getElementById("tc");
+    const submit = document.getElementById("bt");
+
+    // This variable stores all the data.
+    let data = "\r First Name: " + firstName.value + " \r\n " + "Middle Name: " + middleName.value + " \r\n " + "Last Name: " + lastname.value + " \r\n " + "Email: " + email.value + " \r\n " + "Phone: " + mno.value + " \r\n " + "Gender: " + gender.value + " \r\n " + "Date of Birth: " + dob.value + " \r\n " + "Password: " + password.value + " \r\n " + "Address: " + address.value + " \r\n " + "Pincode: " + pincode.value + " \r\n " + "T&C: " + tc.value;
+    console.log(data); //printing form data into the console
+    // Convert the text to BLOB.
+    const textToBLOB = new Blob([data], { type: "text/plain" });
+    var filename = new Date();
+    var month = new Date(); //months from 1-12
+    month = month.getMonth();
+
+    var day = new Date();
+    var day = day.getUTCDate();
+
+    var year = new Date();
+    var year = year.getUTCFullYear();
+
+    newdate = year + "/" + month + "/" + day;
+    const sFileName = filename; // The file to save the data.
+
+    let newLink = document.createElement("a");
+    newLink.download = new Date();
+    newLink.href = window.URL.createObjectURL(textToBLOB);
+    newLink.style.display = "none";
+    document.body.appendChild(newLink);
+    // if (window.webkitURL != null) {
+    //     newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    // } else {
+
+    // }
+
+    newLink.click();
+  };
+</script>

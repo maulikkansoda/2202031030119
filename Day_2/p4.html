@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> College infromation </title>
+</head>
+	<body >
+	<h1 align="center"> College Information </h1>
+	<form method="post">
+		<table align="center" border="2" cellspacing="0" cellpadding="10" style="border-color: black" 
+        >
+			<tr>
+                <td> First name : </td>
+                <td> <input type="text" id="fname" name="fname"></td>
+            </tr>
+            <tr>
+                <td> Last name : </td>
+                <td> <input type="text" id="lname" name="lname"></td>
+            </tr>
+            <tr>
+                <td> Enrollment No : </td>
+                <td> <input type="text" id="enum" name="enum"></td>
+            </tr>	
+            <tr>
+                <td> Password:</td>
+                <td> <input type="password">
+            </tr>	
+            <tr>
+            <td> Gender : </td>
+                <td>
+                     <input type="radio" id="rdo1" name="gender" value="Male" > Male
+                     <input type="radio" id="rdo2" name="gender" value="Female" > Female
+                </td>
+            </tr>
+            <tr>
+                <td> Degree : </td>
+                <td>
+                    <select id="degree" name="degree">
+                        <option value=" ">-Select Degree- </option>
+                        <option value="Dipl"> DIPLOMA </option>
+                        <option value="Bsc"> BSC </option>
+                        <option value="Msc"> MSC </option>
+                        <option value="B.com"> B.COM </option>
+                        <option value="B.tech"> B.TECH </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"> 
+                    <input type="submit" id="submit" name="submit" value="submit">
+                </td>
+            </tr>
+		</table>
+	</form><br>
+		<h1 align="center" > Information </h1>
+	<table align="center" border="2" cellspacing="0" cellpadding="10" style="border-color: black;">
+        	<tr bgcolor="lightblue">
+        		<td> First Name : </td>
+        		<td> Last Name : </td>
+        		<td> Enrollment No : </td>
+        		<td> Gender : </td>
+        		<td> Degree : </td>
+        	</tr>
+        	<tr>
+        		<td> <?php if(isset($fname)) echo $fname; ?> </td>
+        		<td> <?php if(isset($lname)) echo $lname; ?> </td>
+        		<td> <?php if(isset($enum)) echo $enum; ?> </td>
+        		<td> <?php if(isset($gender)) echo $gender; ?> </td>
+        		<td> <?php if(isset($degree)) echo $degree; ?> </td>
+        	</tr>
+        </table>
+   
+</body>
+</html>
