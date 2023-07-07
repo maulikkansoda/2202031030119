@@ -1,0 +1,29 @@
+<html>
+<body>
+   <h2>Using <i>'click', 'mouseover', and 'mouseout'</i> JavaScript DOM Events to change the content of an element 
+   <h4> #NOTE: click, move the pointer over, or move the pointer out of the element to show the result. </h4>
+   <div
+      id="root"
+      style=" background-color: rgb(240, 248, 255); border: 1px solid gray; margin: 5px 0px; padding: 10px; "
+      onclick="clickEventHandler()"
+      onmouseover="mouseoverEventHandler()"
+      onmouseout="mouseoutEventHandler()">
+      It is an element with JavaScript DOM Events!
+   </div>
+   <script>
+      // element
+      const root = document.getElementById('root')
+      
+      // Event Handlers
+      function clickEventHandler() {
+         root.innerHTML = 'click event occurs!'
+      }
+      function mouseoverEventHandler() {
+         root.innerHTML = 'mouseover event occurs!'
+      }
+      function mouseoutEventHandler() {
+         root.innerHTML = 'mouseout event occurs!'
+      }
+   </script>
+</body>
+</html>

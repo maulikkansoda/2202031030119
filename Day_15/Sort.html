@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sortable</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #sortable-5, #sortable-6,#sortable-7 {   
+         list-style-type: none; margin: 0; padding: 0;  
+         width: 20%;float:left }  
+      #sortable-5 li, #sortable-6 li,#sortable-7 li {   
+         margin: 0 3px 3px 3px; padding: 0.4em;   
+      padding-left: 1.5em; font-size: 17px; height: 16px; }  
+      .default {  
+         background: lightgreen;  
+         border: 1px solid #DDDDDD;  
+         color: #333333;  
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+   $(function() {  
+         $( "#sortable-5, #sortable-6" ).sortable({  
+            connectWith: "#sortable-5, #sortable-6"  
+         });  
+         $( "#sortable-7").sortable({  
+            connectWith: "#sortable-5",  
+            dropOnEmpty: false  
+         });  
+  
+      });  
+  </script>
+</head>
+<body>
+ 
+<ul id="sortable">
+    <ul id="sortable-5"><h3>Pool A</h3>  
+        <li class="default">India</li>  
+        <li class="default">Australia</li>  
+        <li class="default">Bangla Desh</li>  
+        <li class="default">Kenya</li>  
+     </ul>  
+     <ul id="sortable-6"><h3>Pool B</h3>  
+        <li class="default">Pakistan</li>  
+        <li class="default">Sri Lanka</li>  
+        <li class="default">West Indies</li>  
+        <li class="default">Canada</li>  
+     </ul>  
+     <ul id="sortable-7"><h3>Pool 
+        C</h3>  
+        <li class="default">South Africa</li>  
+        <li class="default">England</li>  
+        <li class="default">Zimbambe</li>  
+        <li class="default">UAE</li>  
+     </ul>  
+</body>
+</html>

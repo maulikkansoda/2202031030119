@@ -1,0 +1,34 @@
+<html>
+<body>
+   <h2>Using the <i>'input', and 'copy' JavaScript DOM Events</i></h2>
+   <h4>#NOTE: Put user input and copy the element content to show the result.</h4>
+   <input
+      id="input-field"
+      type="text"
+      name="example"
+      oninput="inputEventHandler()"/>
+   <div
+      id="root"
+      style=" background-color: rgb(240, 248, 255); border: 1px solid gray; margin: 5px 0px; padding: 10px; " 
+      oncopy="copyEventHandler()" >
+      It is an element.
+   </div>
+   <script>
+
+      // element
+      const root = document.getElementById('root')
+
+      //input field
+      const input_field = document.getElementById('input-field')
+      
+      // Event Handlers
+      function inputEventHandler() {
+         root.innerHTML = input_field.value
+      }
+      function copyEventHandler() {
+         root.innerHTML =
+         'copy event occurs! <br /> User tries to copy this content!'
+      }
+   </script>
+</body>
+</html>

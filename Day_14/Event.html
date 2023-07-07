@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JQuery Events</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" language="javascript">
+//JQuery makes a use of anonymous functions
+$(function () {
+console.log("function");
+});
+$(document).ready(function () {
+//$("div").bind('click', function(){});
+$("#btnClickEvent").click(function () {
+// jQuery code goes here
+$(this).text('Button click');
+});
+$("#btnClickEvent").dblclick(function () {
+$(this).text('Button bouble click');
+});
+$("#divMouseLeaveEnter").mouseenter(function () {
+$(this).text('Cursor is in!');
+
+});
+$("#divMouseLeaveEnter").mouseleave(function () {
+$(this).text('Curosr is out!');
+});
+$("#divMouseUpDown").mousedown(function () {
+$(this).text('Mouse button is down!');
+});
+$("#divMouseUpDown").mouseup(function () {
+$(this).text('Mouse button is released!');
+});
+});
+</script>
+<style>
+    button{
+
+        background-color:#D4603b;
+    }
+div{
+border:solid;
+border-color:#000000;
+border-width:1px;
+background-color:#D4603b ;
+margin:20px;
+padding:10px;
+font-size:18px;
+width:300px;
+text-align:center;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<button id="btnClickEvent">Click / Double Click Events</button>
+<div id="divMouseLeaveEnter"> Enter / Leave Mouse Events</div>
+<div id="divMouseUpDown"> Up / Down Mouse Events</div>
+</body>
+</htm
