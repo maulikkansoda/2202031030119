@@ -1,0 +1,331 @@
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Car Feedback Form</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+            }
+
+            body {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                background: linear-gradient(to right, #b92b27, #1565c0)
+            }
+
+            .container {
+                position: relative;
+                font-size: large;
+                max-width: 600px;
+                width: 100%;
+                background: #fff;
+                padding: 25px;
+                border-radius: 8px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .container header {
+                font-size: 1.5rem;
+                color: #333;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            .container .form {
+                margin-top: 30px;
+            }
+
+            .form .input-box {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .input-box label {
+                color: #333;
+                font-size: large;
+            }
+
+            .form :where(.input-box input, .select-box) {
+                position: relative;
+                height: 50px;
+                width: 100%;
+                outline: none;
+                font-size: 1rem;
+                color: #707070;
+                margin-top: 8px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 0 15px;
+            }
+
+            /* input[type='checkbox'] {margin: 8PX;} */
+
+            .input-box input:focus {
+                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .form .column {
+                display: flex;
+                column-gap: 15px;
+            }
+
+            .form .gender-box {
+                margin-top: 20px;
+            }
+
+            .gender-box h3 {
+                color: #333;
+                font-size: 1rem;
+                font-weight: 400;
+                margin-bottom: 8px;
+            }
+
+            .form :where(.gender-option, .gender) {
+                display: flex;
+                align-items: center;
+                column-gap: 50px;
+                flex-wrap: wrap;
+            }
+
+            .form .gender {
+                column-gap: 5px;
+            }
+            .form .gender {
+                column-gap: 5px;
+            }
+            .gender input {
+                accent-color: rgb(130, 106, 251);
+            }
+
+            .form :where(.gender input, .gender label) {
+                cursor: pointer;
+            }
+
+            .gender label {
+                color: #707070;
+            }
+
+            .form :where(.gender-option, .gender) {
+                display: flex;
+                align-items: center;
+                column-gap: 5px;
+                flex-wrap: wrap;
+            }
+
+            .address :where(input, .select-box) {
+                margin-top: 15px;
+            }
+
+            .select-box select {
+                height: 100%;
+                width: 100%;
+                outline: none;
+                border: none;
+                color: #707070;
+                font-size: 1rem;
+            }
+
+            .form button {
+                height: 55px;
+                width: 100%;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 400;
+                margin-top: 30px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                background: linear-gradient(to right, #b92b27, #1565c0)
+            }
+
+            .form button:hover {
+                background: rgb(36, 24, 98);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .rate {
+                float: left;
+                height: 46px;
+                padding: 0 2px;
+                
+            }
+            #rating-icon{
+            margin: 14px 5px 0 0;
+        }
+
+            .rate:not(:checked)>input {
+                position: absolute;
+                top: -9999px;
+            }
+
+            .rate:not(:checked)>label {
+                float: right;
+                width: 1em;
+                overflow: hidden;
+                white-space: nowrap;
+                cursor: pointer;
+                font-size: 30px;
+                color: #ccc;
+            }
+
+            .rate:not(:checked)>label:before {
+                content: '★ ';
+            }
+
+            .rate>input:checked~label {
+                color: #ffc700;
+            }
+
+            .rate:not(:checked)>label:hover,
+            .rate:not(:checked)>label:hover~label {
+                color: #deb217;
+            }
+
+            .rate>input:checked+label:hover,
+            .rate>input:checked+label:hover~label,
+            .rate>input:checked~label:hover,
+            .rate>input:checked~label:hover~label,
+            .rate>label:hover~input:checked~label {
+                color: #c59b08;
+            }
+
+            /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+            @media screen and (max-width: 500px) {
+                .form .column {
+                    flex-wrap: wrap;
+                }
+
+                .form :where(.gender-option, .gender) {
+                    row-gap: 15px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <body>
+            <section class="container">
+                <header>Car Feedback Form</header>
+                <form method="post" action="feedback.php" class="form" id="feedbackForm">
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+                        <label> Name </label>
+                        <input id="name" onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="Enter first name" name="Name" required />
+                    </div>
+    
+                    <div class="input-box">
+                        <i class="fa-solid fa-envelope"></i>
+                        <label>Email</label>
+                        <input type="text" id="email" pattern="^[a-zA-Z0-9]+@gmail\.com$" placeholder="Enter email address" name="Email" required />
+                    </div>
+    
+                    <div class="column">
+                        <div class="input-box">
+                            <i class="fa-solid fa-phone"></i>
+                            <label>Mobile Number</label>
+                            <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10"  placeholder="Enter Mobile number" name="Mobileno" required />
+                        </div>
+                    </div>
+                    <div class="input-box qualification">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        <label>Location</label>
+                        <div class="column">
+                            <div class="select-box">
+                                <select id="location" name="Location">
+                                    <option hidden>Select</option>
+                                    <option>Sharma Hyundai</option>
+                                    <option>Concept Hyundai</option>
+                                    <option>Gallops Hyundai</option>
+                                    <option>Planet Hyundai</option>
+                                    <option>Shivalik Hyundai</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="gender-box">
+                        <i class="fa-sharp fa-solid fa-car-battery"></i>
+                        <label>How do feel after seating in our car?</label>
+                        <div class="gender-option">
+                            <div class="gender">
+                                <input type="radio" id="check-male" name="Our_car"  />
+                                <label for="check-male">Excellent </label>
+                            </div>
+                            <div class="gender">
+                                <input type="radio" id="check-female" name="Our_car" />
+                                <label for="check-female">Good </label>
+                            </div>
+                            <div class="gender">
+                                <input type="radio" id="check" name="Our_car"  />
+                                <label for="check-male">Comfortable</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="gender-box">
+                        <i class="fa-solid fa-taxi" style="--fa-secondary-opacity: 1;"></i>
+                        <label>Things that should be improved in the future:<br></label>
+                        <div class="gender">
+                            <input type="checkbox" id="services" name="Future" value="Services">
+                            <label for="services">Services</label>
+                            <input type="checkbox" id="services" name="Future" value="Services">
+                            <label for="services">Interior</label>
+                            <input type="checkbox" id="services" name="Future" value="Services">
+                            <label for="services">Sound</label>
+                        </div>
+                    </div>
+    
+                    <div class="input-box">
+                        <i class="fa-solid fa-comment"></i>
+                        <label>Comments and Suggestions:</label>
+                        <input type="text" placeholder="Comments and Suggestions:" name="Comments" required />
+                    </div>
+    
+                    <div class="input-box">
+                        <div class="rate">
+                            <i id="rating-icon" class="fa-solid fa-face-smile"></i>
+                            <input type="radio" id="star5" name="Rating" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="Rating" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="Rating" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="Rating" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="Rating" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                    </div>
+                    <button type="submit">Send your feedback </button><br><br>
+                </form>
+                </div>
+    
+
+               
+
+                   
+     
+        </body>
+
+    </html>
